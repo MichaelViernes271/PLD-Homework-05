@@ -16,10 +16,18 @@ def askAge(): # Requests age.
     
     try:
         age = int(input("What is your age: "))
-        if age == None or age == "":
-            raise TypeError
-    except TypeError as e:
-        print(f"Your input was \"{age}\" which raises exception: {str(e)}")
+    except ValueError as e:
+        print(
+        f"""
+        !!!!!!!WARNING!!!!!!!!!!!!!!!!!!!!WARNING!!!!!!!!!!!!!!!!!!
+        NING!!!!!!!!!!!!!!!!!!!!!!WARNING!!!!!!!!!!!!!!!!!!!!!!!WAR
+        
+        Your input was \"{age}\" which raises \n\texception: {str(e)}\n
+    
+        !!!!!!!WARNING!!!!!!!!!!!!!!!!!!!!WARNING!!!!!!!!!!!!!!!!!!
+        NING!!!!!!!!!!!!!!!!!!!!!!WARNING!!!!!!!!!!!!!!!!!!!!!!!WAR
+        """
+        )
     
     return age
 
@@ -27,26 +35,21 @@ def compareAge(u_age): # Returns the age class.
 
     kid, teen, debut, adult = 12, 19, 17, 18
     
-    try:
-        
-        if u_age <= kid:
-            return "kid"
-        elif kid < u_age <= teen:
-            return "teen"
-        elif debut == u_age:
-            return "debut"
-        elif u_name > adult:
-            return "adult"
-        else:
-            return "Not a valid value. Please try again."
-    except InvalidInput:
-        print(InvalidInput)
-
-
+    if u_age <= kid:
+        return "kid"
+    elif kid < u_age <= teen:
+        return "teen"
+    elif debut == u_age:
+        return "debut"
+    elif u_age >= adult:
+        return "adult"
+    else:
+        print("Cannot identify. Please redo.")
+        raise Exception
 
 def printAge(age, category): # Prints result.
     print_age_result = """
-    The age entered {} is classified as \"{}\"
+    The age entered {} is classified as \"{}\".
     """
     print(print_age_result.format(age, category))
     pass
@@ -56,9 +59,13 @@ def main(): # Main().
     """
        \n\n
 ========================================
-\t\tLIFE STAGES
-=======================================
-Instructions: Enter an age to print\n \rits classification.\n
+\t\tLIFE STAGES\n
+    0 - 12: Kid     13 - 17: Teen
+    18: Debut       19 and above: Adult
+
+========================================
+
+Instructions: Enter an age to print\n \rits classification.
     """)
     age = askAge()
     ageCateg = compareAge(age)
@@ -69,6 +76,8 @@ while True:
     quit = input("Quit (y/n): ")
     if quit is type(str):
         quit = quit.lower()
-    if quit == 'y' or quit != 0 or quit == None or quit == "":
+        print(quit)
+    if (quit == 'y' or quit == 0):
+        print("it still closes")    
         break
-        
+    
