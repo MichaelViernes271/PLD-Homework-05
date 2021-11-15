@@ -78,6 +78,6 @@ while True:
         quit = quit.lower()
         print(quit)
     if (quit == 'y' or quit == 0):
-        print("it still closes")    
+        print("Closing...\n")    
         break
     
