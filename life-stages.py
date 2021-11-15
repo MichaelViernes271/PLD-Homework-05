@@ -11,15 +11,27 @@ Submitted to: Mr. Danilo Madrigalejos
 # X = ALSO, RESEARCH ABOUT DECOR FUNCS.
 # ========================================
 
+def askAge(): # Requests age.
+    age = None
+    
+    try:
+        age = int(input("What is your age: "))
+        if age == None or age == "":
+            raise TypeError
+    except TypeError as e:
+        print(f"Your input was \"{age}\" which raises exception: {str(e)}")
+    
+    return age
 
 def compareAge(u_age): # Returns the age class.
 
+    kid, teen, debut, adult = 12, 19, 17, 18
+    
     try:
-        int kid, teen debut, adult = 12, 17, 18, 19
         
-        if u_age =< kid:
+        if u_age <= kid:
             return "kid"
-        elif kid < u_age =< teen:
+        elif kid < u_age <= teen:
             return "teen"
         elif debut == u_age:
             return "debut"
@@ -28,20 +40,35 @@ def compareAge(u_age): # Returns the age class.
         else:
             return "Not a valid value. Please try again."
     except InvalidInput:
+        print(InvalidInput)
+
+
 
 def printAge(age, category): # Prints result.
-
-
-def askAge(): # Requests age.
-    try:
-        return int(input("What is your age: "))
-    except TypeError as e:
-        e
-
+    print_age_result = """
+    The age entered {} is classified as \"{}\"
+    """
+    print(print_age_result.format(age, category))
+    pass
+    
 def main(): # Main().
     print(
     """
-       ========================================
-       \t\tLIFE STAGES
-       ========================================
+       \n\n
+========================================
+\t\tLIFE STAGES
+=======================================
+Instructions: Enter an age to print\n \rits classification.\n
     """)
+    age = askAge()
+    ageCateg = compareAge(age)
+    printAge(age, ageCateg)
+    
+while True:
+    main()
+    quit = input("Quit (y/n): ")
+    if quit is type(str):
+        quit = quit.lower()
+    if quit == 'y' or quit != 0 or quit == None or quit == "":
+        break
+        
