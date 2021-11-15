@@ -1,4 +1,15 @@
 #
+#                                                               November 16, 2021
+#     Good day Mr. Madrigalejos:
+#         
+#         I believe I had my git repository working once again. Noted with thanks.
+#         
+#
+#          Sincerely,
+#
+#          Mr. Viernes
+#
+#
 #Topic: Programming Logic and Desin
 #Author: Viernes, Michael
 #College: BSCOE 1-1
