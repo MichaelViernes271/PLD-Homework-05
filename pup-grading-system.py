@@ -13,29 +13,27 @@ def inputGrade(): # Asks number of grade.
     return grade
 
 def equateGrade(grade): # Returns equivalent CLASS MARK and DESCRIPTION.
-
-    grade_dict = getGradingDict()
     if grade.isdigit():
-        grade = int(grade)
+        grade = float(grade)
         if grade >= 97 and grade <= 100:
             return str("1.00: Excellent")
-        elif grade >= 94:
+        elif grade >= 94 and grade <=96:
             return str("1.25: Excellent")
-        elif grade >= 91:
+        elif grade >= 91 and grade <= 93:
             return str("1.50: Very Good")
-        elif grade >= 88:
+        elif grade >= 88 and grade <= 90:
             return str("1.75: Very Good")
-        elif grade >= 85:
+        elif grade >= 85 and grade <= 87:
             return str("2.00: Good")
-        elif grade >= 82:
+        elif grade >= 82 and grade <= 84:
             return str("2.25: Good")
-        elif grade >= 79:
+        elif grade >= 79 and grade <= 81:
             return str("2.50: Satisfactory")
-        elif grade >= 76:
+        elif grade >= 76 and grade <= 78:
             return str("2.75: Satisfactory")
         elif grade == 75:
             return str("3.00: Passing")
-        elif grade >= 65:
+        elif grade >= 65  and grade <= 74:
             return str("5.00: Failure")
         else:
             print("Input error.")
@@ -51,6 +49,7 @@ def equateGrade(grade): # Returns equivalent CLASS MARK and DESCRIPTION.
             # raise Exception("\n\n\nThe input is under or beyond the limit!\n\n")
             print("Input error")
             exit()
+            print("Input error")
 
 def getGradingDict(): # Creates a dictionary of grades where: keys = class mark, values = description.
     gradeMark = {
@@ -83,11 +82,8 @@ def main(): # main().
     
     u_grade = inputGrade()
     u_marking = equateGrade(u_grade)
-    u_marking = u_marking.split(":")
-   
+    u_marking = u_marking.split(":") # Seperates the string mark and desc.
     printGrade(u_grade, u_marking)
-    
-
 while True: # My template for usual main().
     main()
     quit = input("Quit (y/n): ")
